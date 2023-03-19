@@ -1,7 +1,14 @@
 const SERVER_URL = 'http://localhost:5000';
 
 function submitform() {
-    let number = document.getElementById('number').value
+    let number = document.getElementById('number').value;
+    let message = document.getElementById('message');
+    message.style.color = "initial"
+    if (!number || isNaN(number)) {
+        message.innerHTML = 'Please Enter a Valid Number';
+        message.style.color = "red";
+        return;
+    }
     fetch(`${SERVER_URL}/check`, {
             method: 'POST',
             headers: {
@@ -13,7 +20,6 @@ function submitform() {
         })
         .then(response => response.json())
         .then(data => {
-            let message = document.getElementById('message');
             if (data.result == 'High' || data.result == 'Low')
                 message.innerHTML = `Number ${data.integer} is ${data.result}er than 100`;
             else
