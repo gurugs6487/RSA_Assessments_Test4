@@ -11,10 +11,10 @@ def test_check1(client):
     assert response_data["result"] == "Low"
 
 def test_check2(client):
-    resp = client.post('/check', json={"number": 101.5})
+    resp = client.post('/check', json={"number": 101})
     assert resp.status_code == 200
     response_data = json.loads(resp.data)
-    assert response_data["integer"] == 101.5
+    assert response_data["integer"] == 101
     assert response_data["result"] == "High"
 
 

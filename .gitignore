@@ -1,4 +1,4 @@
 *.xml*
 *.coverage*
 __pycache__/
-
+*.cpython*.pyc

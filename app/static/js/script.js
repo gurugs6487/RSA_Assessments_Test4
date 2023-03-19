@@ -9,6 +9,11 @@ function submitform() {
         message.style.color = "red";
         return;
     }
+    if (!Number.isInteger(Number.parseFloat(number))) {
+        message.innerHTML = 'Please Enter a Valid Integer';
+        message.style.color = "red";
+        return;
+    }
     fetch(`${SERVER_URL}/check`, {
             method: 'POST',
             headers: {
