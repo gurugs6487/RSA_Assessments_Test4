@@ -25,6 +25,7 @@ function submitform() {
         })
         .then(response => response.json())
         .then(data => {
+            //console.log(data)
             if (data.result == 'High' || data.result == 'Low')
                 message.innerHTML = `Number ${data.integer} is ${data.result}er than 100`;
             else

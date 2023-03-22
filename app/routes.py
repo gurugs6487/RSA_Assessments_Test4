@@ -9,7 +9,7 @@ def home():
 @flask_app.route('/check', methods=['POST'])
 def validate():
     try:
-        number = request.json['number']
+        number = float(request.json['number'])
         if number > 100:
             result = 'High'
         elif number < 100:
